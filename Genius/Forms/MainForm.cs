@@ -69,8 +69,6 @@ namespace Genius.Forms
 
 		private async void BtnStart_Click(object sender, EventArgs e)
 		{
-			UnlockButtons();
-
 			if (rbEasy.Checked)
 			{
 				lblSequenceValue.Text = "15";
