@@ -16,7 +16,7 @@ namespace Genius.Forms
 
 		private void MainForm_Load(object sender, EventArgs e)
 		{
-			LockButtons();
+			LockOrUnlockButtons(false);
 		}
 
 		private async void PbYellow_MouseDown(object sender, MouseEventArgs e)
@@ -105,7 +105,7 @@ namespace Genius.Forms
 
 		private async Task ShowSequenceAsync()
 		{
-			LockButtons();
+			LockOrUnlockButtons(false);
 
 			int count = default;
 			int currentPosition = Convert.ToInt32(lblPositionValue.Text);
@@ -148,7 +148,7 @@ namespace Genius.Forms
 
 			lblPositionValue.Text = currentPosition.ToString();
 
-			UnlockButtons();
+			LockOrUnlockButtons(true);
 		}
 
 		private void TurnOffLights()
@@ -218,20 +218,17 @@ namespace Genius.Forms
 			}
 		}
 
-		private void LockButtons()
+		/// <summary>
+		/// Bloqueia ou desbloqueia os botões das cores
+		/// <para>Passe <see cref="true"/> para desbloquear os botões</para>
+		/// <para>Passe <see cref="false"/> para bloquear os botões</para>
+		/// </summary>
+		private void LockOrUnlockButtons(bool value)
 		{
-			pbYellow.Enabled = false;
-			pbBlue.Enabled = false;
-			pbGreen.Enabled = false;
-			pbRed.Enabled = false;
-		}
-
-		private void UnlockButtons()
-		{
-			pbYellow.Enabled = true;
-			pbBlue.Enabled = true;
-			pbGreen.Enabled = true;
-			pbRed.Enabled = true;
+			pbYellow.Enabled = value;
+			pbBlue.Enabled = value;
+			pbGreen.Enabled = value;
+			pbRed.Enabled = value;
 		}
 	}
 }
