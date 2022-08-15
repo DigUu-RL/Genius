@@ -1,10 +1,9 @@
-﻿namespace Genius.Enums
+﻿namespace Genius.Enums;
+
+public enum Color
 {
-	public enum Color
-	{
-		Yellow,
-		Blue, 
-		Green, 
-		Red
-	}
+	Yellow,
+	Blue, 
+	Green, 
+	Red
 }
